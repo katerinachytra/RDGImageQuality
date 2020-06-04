@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MultipleLocator
 from scipy.optimize import curve_fit
@@ -140,8 +139,6 @@ plt.grid()
 plt.savefig('lsf_comparison.png')
 plt.show()
 
-exit()
-#
 # ====MTF=====
 stop = 20
 mtf, u, alpha = eia.mtf(stop=stop)
@@ -150,7 +147,7 @@ fig, ax = plt.subplots()
 ax.plot(u[:stop] / cos(alpha), mtf[:stop], 'k--', label='MTF calc')
 # ax.plot(mtf[:stop], 'k--',label='MTF calc')
 plt.xlim(0, 0.6)
-# plt.ylim(10 ** (-6), 1)
+# plt.ylim(0, 1)
 ax.set_ylabel("$mtf$ [-]")
 ax.set_xlabel(r"$u = 1/(2\cdot M\cdot\Delta x)\cdot 1/cos\alpha$ [lp/mm]")
 ax.grid(True, which='major')
