@@ -119,24 +119,10 @@ n, alpha = eia.getangle()
 alpha = np.degrees(alpha)
 plt.plot(x, lsf, 'k--', label=r'with noise,N={n:d},$\alpha$={a:.2f}'.format(n=n, a=alpha))
 
-# ----second file
-
-fName = 'edge_1_5blurred35_512.txt'
-img = np.loadtxt(fName)
-# Call class
-eia = EdgeImageAnalysis(img, p)
-# LSF
-lsf = eia.oversample()
-r = int(lsf.shape[0] / 2)
-x = p * np.linspace(-r, r, 2 * r)
-n, alpha = eia.getangle()
-alpha = np.degrees(alpha)
-plt.plot(x, lsf, 'b--', label=r'without noise,N={n:d},$\alpha$={a:.2f}'.format(n=n, a=alpha))
-
 plt.title('Average LSF')
 plt.legend()
 plt.grid()
-plt.savefig('lsf_comparison.png')
+# plt.savefig('lsf.png')
 plt.show()
 
 # ====MTF=====
