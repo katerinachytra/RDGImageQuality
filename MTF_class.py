@@ -109,7 +109,7 @@ class MTFMath:
 fName = 'Poisson_0_5_edge_1_5blurred35.txt'
 img = np.loadtxt(fName)
 
-p = 0.025  # mm  - bude se menit dle receptoru obrazu - vycist z dicom hlavicky
+p = 0.025  # mm  - according image receptor settings
 # Call class
 eia = EdgeImageAnalysis(img, p)
 # LSF
@@ -157,12 +157,6 @@ ax.grid(True, which='major')
 ax.set_yscale('log')
 
 # ax.xaxis.set_minor_locator(MultipleLocator(0.02))
-# plt.savefig('mtf_corr2.png')
-# MTFteor = np.loadtxt('MTF_teor.txt')
-# ax.plot(u[:stop], MTFteor[:stop], label='MTFteor')
-# ax.plot(MTFteor[:stop], label='MTFteor')
-# plt.savefig('mtf_shortRange.png')
-
 u = np.asarray(u)
 mtf = MTFMath(u, p)
 
